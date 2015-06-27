@@ -1,4 +1,4 @@
-package com.ifpe.jpa;
+package jpa;
 
 import java.io.Serializable;
 import javax.persistence.Column;

@@ -17,15 +17,22 @@
                     <p:inputMask id="isbn" value="#{alunoBean.aluno.matricula}" label="matricula" mask="999999999-999999"/>
 
                     <h:outputLabel for="nome" value="Nome: " />
-                    <p:inputText id="titulo" value="#{alunoBean.aluno}" label="Nome"/>
+                    <p:inputText id="titulo" value="#{alunoBean.aluno.nome}" label="Nome"/>
 
                     <h:outputLabel for="dataNascimento" value="Data de Nascimento: " />
                     <p:inputMask id="dataNascimento"   
-                                 value="#{alunoBean.aluno}"                                       
+                                 value="#{alunoBean.aluno.dataNascimento}"                                       
                                  mask="99/99/9999">  
                         <f:convertDateTime pattern="dd/MM/yyyy" />  
                     </p:inputMask>
-                    
+
+                    <h:outputLabel for="email">
+                        <h:outputText value="E-mail:"/>
+                    </h:outputLabel>
+                    <h:inputText id="email" value="#{alunoBean.aluno.email}" required="true" requiredMessage="Campo obrigatório!" >
+                        
+                    </h:inputText>
+
                 </h:panelGrid>
                 <p:commandButton action="#{alunoBean.salvar()}" value="Salvar" ajax="false" update="growl, panel" 
                                  title="Salvar Autor" icon="ui-icon-check" validateClient="false"/>
