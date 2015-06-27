@@ -1,13 +1,10 @@
 package jsf.beans;
 
-import jpa.Aluno;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
-import service.AlunoService;
+import jpa.Aluno;
+import service.AlunoDao;
 
 
 @ManagedBean(name = "alunoBean")
@@ -16,7 +13,7 @@ public class AlunoBean {
     private Aluno aluno;
     
     @EJB
-    private AlunoService alunoService;
+    private AlunoDao alunoDao;
 
     /**
      * Creates a new instance of AlunoBean
@@ -34,7 +31,7 @@ public class AlunoBean {
     }
 
     public void salvar() {
-        alunoService.salvar(aluno);
+        alunoDao.salvar(aluno);
         iniciarCampos();
         JsfUtil.adicionarMessagem("Cadastro do aluno realizado com sucesso!");
     }
