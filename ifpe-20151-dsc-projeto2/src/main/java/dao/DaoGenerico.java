@@ -22,7 +22,7 @@ import javax.persistence.Query;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.SUPPORTS)
 public class DaoGenerico {
-    @PersistenceContext(name = "biblioteca", type = PersistenceContextType.TRANSACTION)
+    @PersistenceContext(name = "projeto2", type = PersistenceContextType.TRANSACTION)
     private EntityManager entityManager;
     
     public void salvar(Entidade entidade) {
