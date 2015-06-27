@@ -16,10 +16,6 @@ import javax.persistence.Query;
 /**
  *
  */
-@Stateless
-@LocalBean
-@TransactionManagement(TransactionManagementType.CONTAINER)
-@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 public class Dao {
     @PersistenceContext(name = "projeto2", type = PersistenceContextType.TRANSACTION)
     protected EntityManager entityManager;
