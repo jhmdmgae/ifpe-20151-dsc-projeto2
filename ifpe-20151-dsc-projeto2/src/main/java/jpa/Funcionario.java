@@ -1,5 +1,6 @@
-package com.ifpe.jpa;
+package jpa;
 
+import jpa.Usuario;
 import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;

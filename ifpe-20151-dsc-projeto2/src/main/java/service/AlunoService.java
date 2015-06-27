@@ -1,7 +1,7 @@
 package service;
 
 import jpa.Aluno;
-import dao.DaoGenerico;
+import dao.Dao;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -13,7 +13,6 @@ import javax.ejb.TransactionManagementType;
 
 /**
  *
- * @author MASC
  */
 @Stateless
 @LocalBean
@@ -21,7 +20,7 @@ import javax.ejb.TransactionManagementType;
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 public class AlunoService {
     @EJB
-    private DaoGenerico daoGenerico;
+    private Dao daoGenerico;
     
     public void salvar(Aluno aluno) {
         daoGenerico.salvar(aluno);

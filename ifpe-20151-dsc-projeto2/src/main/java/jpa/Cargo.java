@@ -1,4 +1,4 @@
-package com.ifpe.jpa;
+package jpa;
 
 /**
  *

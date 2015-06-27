@@ -15,19 +15,14 @@ import javax.persistence.Query;
 
 /**
  *
- * @author MASC
  */
 @Stateless
 @LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.SUPPORTS)
-public class DaoGenerico {
+public class Dao {
     @PersistenceContext(name = "projeto2", type = PersistenceContextType.TRANSACTION)
-    private EntityManager entityManager;
-    
-    public void salvar(Entidade entidade) {
-        entityManager.persist(entidade);
-    }
+    protected EntityManager entityManager;
     
     public List get(String nomeQuery) {
         Query query = entityManager.createNamedQuery(nomeQuery);

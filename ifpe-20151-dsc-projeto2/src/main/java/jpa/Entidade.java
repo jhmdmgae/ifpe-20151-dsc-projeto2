@@ -8,7 +8,6 @@ import javax.persistence.MappedSuperclass;
 
 /**
  *
- * @author MASC
  */
 @MappedSuperclass
 public abstract class Entidade implements Serializable {
