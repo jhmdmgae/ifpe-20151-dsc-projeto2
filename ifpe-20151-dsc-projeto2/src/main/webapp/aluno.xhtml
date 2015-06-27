@@ -11,38 +11,21 @@
             <p:growl id="growl" life="3500" autoUpdate="true"/>
             <ui:include src="/menu.xhtml" />
             <p:separator />
-            <p:panel id="panel" header="Cadastro de Aluno" footer="Biblioteca - EJB 3">
+            <p:panel id="panel" header="Cadastro de Aluno" footer="Sistema TCC - EJB 3">
                 <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="isbn" value="ISBN: " />
-                    <p:inputMask id="isbn" value="#{alunoBean.aluno.isbn}" label="ISBN" mask="999-99-9999-999-9"/>
+                    <h:outputLabel for="matricula" value="Matrícula: " />
+                    <p:inputMask id="isbn" value="#{alunoBean.aluno.matricula}" label="matricula" mask="999999999-999999"/>
 
-                    <h:outputLabel for="titulo" value="Título: " />
-                    <p:inputText id="titulo" value="#{alunoBean.aluno.titulo}" label="Título"/>
+                    <h:outputLabel for="nome" value="Nome: " />
+                    <p:inputText id="titulo" value="#{alunoBean.aluno}" label="Nome"/>
 
-                    <h:outputLabel for="dataLancamento" value="Data de Lançamento: " />
-                    <p:inputMask id="dataLancamento"   
-                                 value="#{alunoBean.aluno.dataLancamento}"                                       
+                    <h:outputLabel for="dataNascimento" value="Data de Nascimento: " />
+                    <p:inputMask id="dataNascimento"   
+                                 value="#{alunoBean.aluno}"                                       
                                  mask="99/99/9999">  
                         <f:convertDateTime pattern="dd/MM/yyyy" />  
-                    </p:inputMask> 
-
-                    <h:outputLabel for="autores" value="Autores: " />
-                    <p:selectCheckboxMenu id="autores" value="#{alunoBean.aluno.autores}" label="Autores"
-                                          filter="true" filterMatchMode="startsWith" 
-                                          required="true" converter="entidadeConverter">
-                        <f:selectItems value="#{alunoBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor}"/>
-                    </p:selectCheckboxMenu>
-
-                    <h:outputLabel for="editora" value="Editora: " />
-                    <p:selectOneMenu id="editora" value="#{alunoBean.aluno.editora}" required="true" filter="true" filterMatchMode="startsWith" converter="entidadeConverter">
-                        <f:selectItems value="#{alunoBean.editoras}" var="editora" itemLabel="#{editora.nome}" itemValue="#{editora}" />
-                    </p:selectOneMenu>
+                    </p:inputMask>
                     
-                    <h:outputLabel for="arquivo" value="Arquivo: " />
-                    <p:fileUpload id="arquivo" label="Arquivo" mode="advanced" fileLimit="1" fileLimitMessage="selecione um único arquivo"
-                                  allowTypes="/(\.|\/)(pdf|mobi|epub)$/" invalidFileMessage="apenas arquivos pdf, mobi ou epub"
-                                  sizeLimit="3145728" invalidSizeMessage="são permitidos arquivos de no máximo 3 MB"
-                                  fileUploadListener="#{alunoBean.upload}" dragDropSupport="true"/>
                 </h:panelGrid>
                 <p:commandButton action="#{alunoBean.salvar()}" value="Salvar" ajax="false" update="growl, panel" 
                                  title="Salvar Autor" icon="ui-icon-check" validateClient="false"/>
